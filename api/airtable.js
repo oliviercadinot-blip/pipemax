@@ -66,7 +66,13 @@ async function listRecords(token, params) {
   if (!baseId || !tableId) throw new Error("baseId and tableId are required");
 
   const url = new URL(`${AIRTABLE_API}/${encodeURIComponent(baseId)}/${encodeURIComponent(tableId)}`);
-  if (pageSize) url.searchParams.set("pageSize", String(pageSize));
+  // Airtable REST caps pageSize at 100 (the legacy Cowork MCP did not).
+  // The frontend asks for 200/500 — we silently clamp and let its cursor
+  // loop fetch the rest.
+  if (pageSize) {
+    const n = Math.max(1, Math.min(100, Number(pageSize) || 100));
+    url.searchParams.set("pageSize", String(n));
+  }
   if (cursor) url.searchParams.set("offset", String(cursor));
   url.searchParams.set("returnFieldsByFieldId", "true");
 
