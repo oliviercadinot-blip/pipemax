@@ -1,0 +1,10 @@
+{
+  "name": "pipemax",
+  "version": "2.3.1",
+  "private": true,
+  "type": "module",
+  "description": "PIPEMAX — pipeline commercial VO2, frontend statique + proxy Airtable serverless.",
+  "engines": {
+    "node": ">=18"
+  }
+}

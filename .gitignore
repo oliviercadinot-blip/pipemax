@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+.vercel/
+.env
+.env.local
+.env.*.local
+*.log
+.claude/
+
+# Dev snapshots from Cowork — historical, not needed in deploy.
+# Comment this out if you want to keep version history in git.
+versions/
