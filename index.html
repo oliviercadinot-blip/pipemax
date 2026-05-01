@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PIPEMAX</title>
 <style>
-:root{color-scheme:light;--bg:#fff;--ink:#0a0a0a;--ink-2:#1a1a1a;--muted:#6b6b6b;--muted-2:#9a9a9a;--line:#ececec;--line-2:#d8d8d8;--hover:#fafafa;--good:#2a7d2e;--warn:#7a5b00;--danger:#9b1c2c;--missing:#b8860b;--hot:#dc2626;--fresh:#2a7d2e;--stale:#9a9a9a;--old:#c87a00}
+:root{color-scheme:light;--bg:#fff;--ink:#0a0a0a;--ink-2:#1a1a1a;--muted:#6b6b6b;--muted-2:#9a9a9a;--line:#ececec;--line-2:#d8d8d8;--hover:#fafafa;--good:#2a7d2e;--warn:#7a5b00;--danger:#9b1c2c;--missing:#b8860b;--hot:#dc2626;--fresh:#2a7d2e;--stale:#9a9a9a;--old:#c87a00;--accent:#f97316;--accent-soft:#ffedd5;--accent-soft-2:#fff7ed;--accent-dark:#c2410c;--accent-line:#fdba74}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue",Arial,sans-serif;font-size:13.5px;line-height:1.4;-webkit-font-smoothing:antialiased}
 .brand{font-family:"Times New Roman",Georgia,serif;font-style:italic;font-weight:500;letter-spacing:-.01em}
@@ -78,7 +78,7 @@ header.top{display:flex;align-items:baseline;justify-content:space-between;paddi
 .priocard{border:1px solid var(--line);background:#fafafa;padding:14px 14px;cursor:pointer;display:flex;align-items:center;gap:12px}
 .priocard.nointeract{cursor:default}
 .priocard.nointeract:hover{background:#fafafa}
-.priocard:hover{background:#f0f0f0}.priocard.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.priocard:hover{background:#f0f0f0}.priocard.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .priocard.warn{background:#fff8e6;border-color:#f3d57b}
 .priocard.warn:hover{background:#fff0c4}
 .priocard.warn.active{background:var(--missing);color:#fff;border-color:var(--missing)}
@@ -88,11 +88,11 @@ header.top{display:flex;align-items:baseline;justify-content:space-between;paddi
 .priocard.rfp{background:#fef9e7;border-color:#fde68a}
 .priocard.rfp:hover{background:#fef3c7}
 .priocard.rfp.active{background:#d97706;color:#fff;border-color:#d97706}
-.priocard.target-band{box-shadow:inset 4px 0 0 var(--ink)}
+.priocard.target-band{box-shadow:inset 4px 0 0 var(--accent)}
 .priocard .pdot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
 .priocard .pinfo{flex:1;min-width:0}
 .priocard .pname{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.priocard.active .pname{color:#bdbdbd}
+.priocard.active .pname{color:#ffe8d4}
 .priocard.warn .pname{color:var(--missing)}
 .priocard.warn.active .pname{color:#fff0c4}
 .priocard.hot .pname{color:var(--hot)}
@@ -106,16 +106,17 @@ header.top{display:flex;align-items:baseline;justify-content:space-between;paddi
 .btn:disabled{opacity:.4;cursor:not-allowed}
 .btn.ai{background:#fff;color:var(--ink);border-color:var(--ink);position:relative}
 .btn.ai::before{content:'✨';margin-right:4px}
-.btn.lead-toggle{background:#fff;color:var(--good);border-color:var(--good)}
-.btn.lead-toggle.active{background:var(--good);color:#fff}
+.btn.lead-toggle{background:#fff;color:var(--accent-dark);border-color:var(--accent-line)}
+.btn.lead-toggle:hover{background:var(--accent-soft-2);border-color:var(--accent)}
+.btn.lead-toggle.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .actions .spacer{flex:1}.actions .count{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 .table-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 table.accounts{width:100%;border-collapse:collapse;table-layout:auto}
 table.accounts thead th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500;padding:10px 10px;border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:5}
 table.accounts tbody td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:12.5px;font-family:-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue",Arial,sans-serif}
 table.accounts tbody tr{cursor:pointer}
-table.accounts tbody tr:hover{background:var(--hover)}
-table.accounts tbody tr.is-target{box-shadow:inset 3px 0 0 var(--ink)}
+table.accounts tbody tr:hover{background:var(--accent-soft-2)}
+table.accounts tbody tr.is-target{box-shadow:inset 3px 0 0 var(--accent)}
 table.accounts tbody tr.is-lead{box-shadow:inset 3px 0 0 var(--good)}
 table.accounts tbody tr.is-hot{box-shadow:inset 3px 0 0 var(--hot)}
 table.accounts tbody tr.incomplete{background:#fffaee}
@@ -151,7 +152,7 @@ table.accounts tbody tr.incomplete:hover{background:#fff5dc}
 .sb-search{flex:1;font:inherit;font-size:12px;border:1px solid var(--line-2);padding:6px 10px;outline:none;max-width:340px;background:var(--bg)}
 .sb-search:focus{border-color:var(--ink)}
 .sb-chips{display:flex;gap:5px;flex-wrap:nowrap;overflow:hidden}
-.sb-chip{font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:3px 7px;border:1px solid var(--ink);background:var(--ink);color:#fff;white-space:nowrap;cursor:pointer}
+.sb-chip{font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:3px 7px;border:1px solid var(--accent);background:var(--accent);color:#fff;white-space:nowrap;cursor:pointer}
 .sb-chip:hover{opacity:.85}
 .sb-btn{font:inherit;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;border:1px solid var(--line-2);background:var(--bg);padding:6px 10px;cursor:pointer;flex:0 0 auto}
 .sb-btn:hover{background:var(--hover);border-color:var(--ink)}
@@ -196,7 +197,7 @@ table.accounts tbody tr.incomplete:hover{background:#fff5dc}
 .statbar .seg{flex:1;height:4px;background:#eaeaea}.statbar .seg.on{background:var(--ink)}
 .statbar .lab{font-size:10.5px;color:var(--muted);margin-left:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.06em}
 .status-pill{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:2px;white-space:nowrap}
-.status-pill.target{background:#f5f5f5;color:var(--muted);border:1px solid var(--line-2)}
+.status-pill.target{background:var(--accent-soft);color:var(--accent-dark);border:1px solid var(--accent-line)}
 .status-pill.lead{background:#e8eef9;color:#2563eb;border:1px solid #c5d3ee}
 .status-pill.active{background:#0a0a0a;color:#fff;border:1px solid #0a0a0a}
 .status-pill.lost{background:#fee2e2;color:var(--danger);border:1px solid #fca5a5}
